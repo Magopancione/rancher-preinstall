@@ -14,7 +14,7 @@
     raw: ( curl https://releases.rancher.com/install-docker/1.12.sh | sh )
     #changed_when: False
 
-  - pause: seconds=2
+  - pause: seconds=1
       
   - name: reload sytemd
     command: /usr/bin/systemctl daemon-reload
