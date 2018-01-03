@@ -32,7 +32,7 @@
           dest=/etc/chrony.conf
 
   - copy: src=./docker.service
-    dest=/usr/lib/systemd/system/docker.service
+          dest=/usr/lib/systemd/system/docker.service
 
   - name: reload sytemd
     command: /usr/bin/systemctl daemon-reload
