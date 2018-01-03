@@ -31,8 +31,8 @@
   - copy: src=./docker.service
     dest=/usr/lib/systemd/system/docker.service
 
-  - copy: src=./chrony.conf
-    dest=/etc/chrony.conf  
+  #- copy: src=./chrony.conf
+  #  dest=/etc/chrony.conf  
  
  
   - name: reload sytemd
