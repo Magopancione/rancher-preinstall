@@ -18,8 +18,7 @@
     become_method: sudo
     raw: test -e /usr/bin/python || ( echo 'http_proxy={{http_proxy}}' >>/etc/environment; source . /etc/environment; curl https://releases.rancher.com/install-docker/1.12.sh | sh)
     changed_when: False
- 
-- setup: # aka gather_facts
+
   - name: Install docker-engine-1.13.1
     yum: name=docker-engine-1.13.1 
 
