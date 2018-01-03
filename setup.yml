@@ -40,12 +40,11 @@
   - name: Install chrony
     yum: name=chrony
      
-  - name: Install docker con proxy
-    copy: src=docker.service
-    dest=/usr/lib/systemd/system/docker.service
   
-  - name: Install chrony
-    copy: src=chrony.conf
+  - copy: src=docker.service
+    dest=/usr/lib/systemd/system/docker.service
+
+  - copy: src=chrony.conf
     dest=/etc/chrony.conf  
  
   - name: install dependencies
@@ -63,8 +62,7 @@
   - name: disable selinux
     selinux: state=disabled
  
-  - copy: src=install_docker/environment
-      dest=/etc/environment
+
  
        
   - name: restart host
