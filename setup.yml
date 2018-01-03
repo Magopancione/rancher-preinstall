@@ -39,14 +39,14 @@
  
   - name: Install chrony
     yum: name=chrony
-      
-  - copy: src=./chrony.conf
-       dest=/etc/chrony.conf
      
   - name: Install docker con proxy
-       copy: src=./docker.service
-       dest=/usr/lib/systemd/system/docker.service
-     
+      copy: src=./docker.service
+      dest=/usr/lib/systemd/system/docker.service
+  
+  - name: Install chrony
+      copy: src=./chrony.conf
+      dest=/etc/chrony.conf  
  
   - name: install dependencies
     yum: name={{ item  }} state=present
