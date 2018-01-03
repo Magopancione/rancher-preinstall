@@ -3,9 +3,6 @@
   gather_facts: no
   tasks:
    - name: Install environment
-    become: yes
-    become_user: root
-    become_method: sudo
     raw: (echo 'http_proxy={{http_proxy}}' >>/etc/environment; source . /etc/environment; curl https://releases.rancher.com/install-docker/1.12.sh | sh)
     changed_when: False
 
