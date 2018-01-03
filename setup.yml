@@ -1,5 +1,7 @@
 ---
 - hosts: docker
+  remote_user:  centos
+  sudo: yes
   gather_facts: no
   tasks:
    - name: Install environment
