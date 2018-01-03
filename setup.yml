@@ -40,7 +40,7 @@
   - name: Install chrony
     yum: name=chrony
       
-  - copy: src=install_docker/chrony.conf
+  - copy: src=chrony.conf
        dest=/etc/chrony.conf
      
  
