@@ -27,14 +27,13 @@
  
   - name: Install chrony
     yum: name=chrony
-     
+
+  - copy: src=chrony.conf
+          dest=/etc/chrony.conf
+
   - copy: src=./docker.service
     dest=/usr/lib/systemd/system/docker.service
 
-  #- copy: src=./chrony.conf
-  #  dest=/etc/chrony.conf  
- 
- 
   - name: reload sytemd
     command: /usr/bin/systemctl daemon-reload
 
