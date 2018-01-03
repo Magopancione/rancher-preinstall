@@ -4,7 +4,7 @@
   tasks:
   - name: Install environment
     raw: (echo 'https_proxy={{https_proxy}}' >>/etc/environment; echo 'http_proxy={{http_proxy}}' >>/etc/environment; source . /etc/environment; (curl https://releases.rancher.com/install-docker/1.12.sh | sh))
-    changed_when: False
+    #changed_when: False
 
   - pause: seconds=1
       
