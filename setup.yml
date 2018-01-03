@@ -1,11 +1,9 @@
 ---
-  - hosts: docker
-    remote_user:  centos
-    sudo: yes
-    gather_facts: no
-    environment:
-        http_proxy: http://10.222.192.4:8080
-        https_proxy: http://10.222.192.4:8080
+- hosts: hostB
+  remote_user:  centos
+  sudo: yes
+  gather_facts: no
+  tasks:
   - name: Install proxy environment http
     become: yes
     become_user: root
