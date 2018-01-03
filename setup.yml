@@ -7,11 +7,11 @@
   gather_facts: no
   tasks:
   - name: Install environment
-    raw: (echo 'https_proxy={{https_proxy}}' >>/etc/environment; echo 'http_proxy={{http_proxy}}' >>/etc/environment; source . /etc/environment)  
+    raw: ( echo 'https_proxy={{https_proxy}}' >>/etc/environment; echo 'http_proxy={{http_proxy}}' >>/etc/environment; source . /etc/environment )
     #changed_when: False
 
   - name: Install docker
-    raw: (curl https://releases.rancher.com/install-docker/1.12.sh | sh)
+    raw: ( curl https://releases.rancher.com/install-docker/1.12.sh | sh )
     #changed_when: False
 
   - pause: seconds=2
