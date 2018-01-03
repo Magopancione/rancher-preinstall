@@ -15,19 +15,7 @@
     #changed_when: False
 
   - pause: seconds=1
-      
-  - name: reload sytemd
-    command: /usr/bin/systemctl daemon-reload
-
-  - name: start docker
-    service: name=docker state=started      
-         
-  - name: enable service docker and ensure it is not masked
-    systemd:
-      name: docker
-      enabled: yes
-      masked: no
-           
+                 
   - name: Check if Service Exists
     stat: path=/etc/init.d/firewalld
     register: service_status
@@ -40,12 +28,25 @@
   - name: Install chrony
     yum: name=chrony
      
-  
-  - copy: src=docker.service
+  - copy: src=./docker.service
     dest=/usr/lib/systemd/system/docker.service
 
-  - copy: src=chrony.conf
+  - copy: src=./chrony.conf
     dest=/etc/chrony.conf  
+ 
+ 
+  - name: reload sytemd
+    command: /usr/bin/systemctl daemon-reload
+
+  - name: start docker
+    service: name=docker state=started      
+         
+  - name: enable service docker and ensure it is not masked
+    systemd:
+      name: docker
+      enabled: yes
+      masked: no
+ 
  
   - name: install dependencies
     yum: name={{ item  }} state=present
@@ -61,10 +62,7 @@
  
   - name: disable selinux
     selinux: state=disabled
- 
-
- 
-       
+  
   - name: restart host
     shell: sleep 1;/usr/sbin/reboot
     async: 1
