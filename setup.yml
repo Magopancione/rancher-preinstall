@@ -1,5 +1,5 @@
 ---
-- hosts: hostB
+- hosts: docker
   remote_user:  centos
   sudo: yes
   gather_facts: no
